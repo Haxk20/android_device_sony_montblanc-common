@@ -50,7 +50,7 @@ PRODUCT_COPY_FILES += \
         device/sony/montblanc-common/config/01stesetup:system/etc/init.d/01stesetup \
         device/sony/montblanc-common/config/10wireless:system/etc/init.d/10wireless \
         device/sony/montblanc-common/config/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf \
-	device/sony/montblanc-common/config/p2p_supplicant.conf:system/etc/wifi/p2p_supplicant.conf \
+        device/sony/montblanc-common/config/p2p_supplicant.conf:system/etc/wifi/p2p_supplicant.conf \
         device/sony/montblanc-common/config/dhcpcd.conf:system/etc/dhcpcd/dhcpcd.conf
 
 # Edit crda for st-ericsson
@@ -140,8 +140,7 @@ PRODUCT_COPY_FILES += \
         device/sony/montblanc-common/config/init.rc:root/init.rc \
         device/sony/montblanc-common/config/init.environ.rc:root/init.environ.rc \
         device/sony/montblanc-common/config/init.st-ericsson.rc:root/init.st-ericsson.rc \
-        device/sony/montblanc-common/config/ueventd.st-ericsson.rc:root/ueventd.st-ericsson.rc \
-        external/koush/Superuser/init.superuser.rc:root/init.superuser.rc
+        device/sony/montblanc-common/config/ueventd.st-ericsson.rc:root/ueventd.st-ericsson.rc
 
 # Post recovery script
 PRODUCT_COPY_FILES += \
@@ -154,7 +153,7 @@ PRODUCT_COPY_FILES += \
         device/sony/montblanc-common/config/install_wlan.sh:system/bin/install_wlan.sh \
         device/sony/montblanc-common/config/ste_modem.sh:system/etc/ste_modem.sh \
         device/sony/montblanc-common/config/gps.conf:system/etc/gps.conf \
-	device/sony/montblanc-common/config/cacert.txt:system/etc/suplcert/cacert.txt
+        device/sony/montblanc-common/config/cacert.txt:system/etc/suplcert/cacert.txt
 
 # Garbage Collector type
 PRODUCT_TAGS += dalvik.gc.type-precise
