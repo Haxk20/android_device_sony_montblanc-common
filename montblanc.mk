@@ -144,7 +144,7 @@ PRODUCT_COPY_FILES += \
 
 # Post recovery script
 PRODUCT_COPY_FILES += \
-        device/sony/montblanc-common/recovery/postrecoveryboot.sh:root/sbin/postrecoveryboot.sh
+        device/sony/montblanc-common/recovery/postrecoveryboot.sh:recovery/root/sbin/postrecoveryboot.sh
 
 # Hardware configuration scripts
 PRODUCT_COPY_FILES += \
