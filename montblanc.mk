@@ -63,9 +63,6 @@ PRODUCT_PACKAGES += \
        linville.key.pub.pem \
        85-regulatory.rules
 
-# KitKat Launcher
-PRODUCT_PACKAGES += Launcher3        
-
 # Filesystem management tools
 PRODUCT_PACKAGES += \
         make_ext4fs \
@@ -87,21 +84,8 @@ PRODUCT_PACKAGES += \
        hostapd_cli \
        hostapd
 
-# File Manager
-PRODUCT_PACKAGES += CMFileManager
-
 # Torch
 PRODUCT_PACKAGES += OmniTorch
-
-# Music & DSP
-PRODUCT_PACKAGES += \
-       Apollo \
-       DSPManager \
-       audio_effects.conf \
-       libcyanogen-dsp
-
-# Sim tool Kit
-PRODUCT_PACKAGES += Stk
 
 # FM Radio
 # We must adapt Qualcomm FM Radio app
