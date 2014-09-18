@@ -64,6 +64,9 @@ BOARD_HAVE_PIXEL_FORMAT_INFO := true
 COMMON_GLOBAL_CFLAGS += -DNEEDS_VECTORIMPL_SYMBOLS
 AOSX_VERSION := 4.0
 
+# Use set_perm instead of set_metadata in updater-script
+SKIP_SET_METADATA := true
+
 # FM Radio
 COMMON_GLOBAL_CFLAGS += -DAUDIO_EXTN_FM_ENABLED
 
