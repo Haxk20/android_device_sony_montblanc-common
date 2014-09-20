@@ -64,6 +64,11 @@ BOARD_NEEDS_OLD_HWC_API := true
 # Misc
 COMMON_GLOBAL_CFLAGS += -DNEEDS_VECTORIMPL_SYMBOLS
 
+# Bootanimation optimization flags
+TARGET_BOOTANIMATION_PRELOAD := true
+TARGET_BOOTANIMATION_TEXTURE_CACHE := false
+TARGET_BOOTANIMATION_USE_RGB565 := true
+
 # Use set_perm instead of set_metadata in updater-script
 SKIP_SET_METADATA := true
 
