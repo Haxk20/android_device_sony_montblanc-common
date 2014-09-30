@@ -19,9 +19,4 @@
 <resources>
     <!-- If there is no sysfs-based control mechanism, enable this -->
     <bool name="useCameraInterface">true</bool>
-
-    <!-- Off setting -->
-    <integer name="valueOff">0</integer>
-    <!-- On setting -->
-    <integer name="valueOn">1</integer>
 </resources>
