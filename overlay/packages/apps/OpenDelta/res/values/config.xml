@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- URL base to find .delta files, %s is expanded to property_device value. Path is suffixed by (expanded) filename_base -->
+    <string name="url_base_delta">https://s.basketbuild.com/uploads/devs/AGONTUK/omni/delta/%s/</string>
+
+    <!-- URL base to find .update and .sign files, %s is expanded to property_device value. Path is suffixed by (expanded) filename_base -->
+    <string name="url_base_update">https://s.basketbuild.com/uploads/devs/AGONTUK/omni/delta/%s/</string>
+
+    <!-- URL base to find the full zip files, %s is expanded to property_device value. Path is suffixed by (expanded) filename_base -->
+    <string name="url_base_full">https://s.basketbuild.com/uploads/devs/AGONTUK/omni/builds/%s/</string>
+
+    <!-- Applies whole-file signature delta. Adds one extra delta step. Required if recovery verifies signatures -->
+    <item type="bool" name="apply_signature">false</item>
+
+    <!-- (TWRP) Set this to false if the keys below aren't your ROM's -->
+    <item type="bool" name="inject_signature_enable">false</item>
+
+    <!-- (TWRP) Add secure mode setting. Requires 'apply_signature' and 'inject_signature_enable'. Limits flashing to TWRP only, verifies ZIP signature in TWRP, disables auto-flashing of additional ZIPs -->
+    <item type="bool" name="secure_mode_enable">false</item>
+
+    <!-- (TWRP) Requires 'secure_mode_enable'. Decides whether the default setting for secure mode is enabled (true) or disabled (false) -->
+    <item type="bool" name="secure_mode_default">false</item>
+
+    <!--
+        Devices (detected using property_device) which may crash while downloading/patching/verifying when the screen is off.
+        This appears to be an issue with the fuse daemon, but the cause has not yet been found or fixed. Until the issue is
+        repaired, this is a stop-gap solution.
+    -->
+    <string-array name="keep_screen_on_devices">
+        <item>kumquat</item>
+        <item>pepper</item>
+        <item>nypon</item>
+        <item>lotus</item>
+    </string-array>
+</resources>
