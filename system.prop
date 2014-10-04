@@ -1,6 +1,3 @@
-# System generic configuration
-sys.mem.max_hidden_apps=5
-
 # Wireless
 wifi.interface=wlan0
 
