@@ -34,10 +34,6 @@ PRODUCT_COPY_FILES += \
         frameworks/native/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml \
         packages/wallpapers/LivePicker/android.software.live_wallpaper.xml:system/etc/permissions/android.software.live_wallpaper.xml
 
-# Wifi direct (test)
-PRODUCT_COPY_FILES += \
-        frameworks/native/data/etc/android.hardware.wifi.direct.xml:system/etc/permissions/android.hardware.wifi.direct.xml
-
 # Configuration files
 PRODUCT_COPY_FILES += \
         device/sony/montblanc-common/config/media_codecs.xml:system/etc/media_codecs.xml \
@@ -47,7 +43,6 @@ PRODUCT_COPY_FILES += \
         device/sony/montblanc-common/config/01stesetup:system/etc/init.d/01stesetup \
         device/sony/montblanc-common/config/10wireless:system/etc/init.d/10wireless \
         device/sony/montblanc-common/config/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf \
-        device/sony/montblanc-common/config/p2p_supplicant.conf:system/etc/wifi/p2p_supplicant.conf \
         device/sony/montblanc-common/config/dhcpcd.conf:system/etc/dhcpcd/dhcpcd.conf
 
 # Edit crda for st-ericsson
