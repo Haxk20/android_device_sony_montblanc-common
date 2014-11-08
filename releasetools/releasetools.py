@@ -17,13 +17,16 @@
 import common
 
 def Thanks(self):
-	self.script.AppendExtra('ui_print("===========================================");')
-	self.script.AppendExtra('ui_print("    Author : Aosx Team :");')
-	self.script.AppendExtra('ui_print("    Thanks :");')
-	self.script.AppendExtra('ui_print("    95A31,Abhinav1997,Agontuk,alwaysadeel");')
-	self.script.AppendExtra('ui_print("    Andrewas,DevSwift,percy-g2,wan5xp,");')
-	self.script.AppendExtra('ui_print("    XMelancholy,munjeni,FXP Team");')
-	self.script.AppendExtra('ui_print("===========================================");')
+	self.script.AppendExtra('ui_print("    _    ___  ____  ____    ____   ___  ");')
+	self.script.AppendExtra('ui_print("   / \  / _ \/ ___||  _ \  | ___| / _ \ ");')
+	self.script.AppendExtra('ui_print("  / _ \| | | \___ \| |_) | |___ \| | | |");')
+	self.script.AppendExtra('ui_print(" / ___ \ |_| |___) |  __/   ___) | |_| |");')
+	self.script.AppendExtra('ui_print("/_/   \_\___/|____/|_|     |____(_)___/ ");')
+	self.script.AppendExtra('ui_print("========================================");')
+	self.script.AppendExtra('ui_print("    Author : AGONTUK");')
+	self.script.AppendExtra('ui_print("    Credits :");')
+	self.script.AppendExtra('ui_print("    AOSX Team, 95A31, munjeni, FXP Team");')
+	self.script.AppendExtra('ui_print("========================================");')
 
 def FullOTA_Assertions(self):
 	Thanks(self)
