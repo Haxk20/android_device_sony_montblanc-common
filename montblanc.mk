@@ -45,16 +45,6 @@ PRODUCT_COPY_FILES += \
         device/sony/montblanc-common/config/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf \
         device/sony/montblanc-common/config/dhcpcd.conf:system/etc/dhcpcd/dhcpcd.conf
 
-# Edit crda for st-ericsson
-# CRDA
-PRODUCT_PACKAGES += \
-       crda \
-       regdbdump \
-       regulatory.bin \
-       intersect \
-       linville.key.pub.pem \
-       85-regulatory.rules
-
 # KitKat Launcher
 PRODUCT_PACKAGES += Launcher3        
 
