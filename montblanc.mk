@@ -69,6 +69,10 @@ PRODUCT_PACKAGES += \
        hostapd_cli \
        hostapd
 
+# WIFI
+PRODUCT_PACKAGES += \
+       wpa_supplicant
+
 # File Manager
 PRODUCT_PACKAGES += CMFileManager
 
