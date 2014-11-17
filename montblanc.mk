@@ -56,22 +56,22 @@ PRODUCT_PACKAGES += \
    
 # libtinyalsa & audio.usb.default
 PRODUCT_PACKAGES += \
-       tinyalsa \
-       libtinyalsa \
-       audio_policy.default \
-       audio.usb.default
+        tinyalsa \
+        libtinyalsa \
+        audio_policy.default \
+        audio.usb.default
        
 # libaudioparameter
 PRODUCT_PACKAGES += libaudioparameter
 
 # Hostapd
 PRODUCT_PACKAGES += \
-       hostapd_cli \
-       hostapd
+        hostapd_cli \
+        hostapd
 
 # WIFI
 PRODUCT_PACKAGES += \
-       wpa_supplicant
+        wpa_supplicant
 
 # File Manager
 PRODUCT_PACKAGES += CMFileManager
