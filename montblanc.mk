@@ -45,6 +45,12 @@ PRODUCT_COPY_FILES += \
         device/sony/montblanc-common/config/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf \
         device/sony/montblanc-common/config/dhcpcd.conf:system/etc/dhcpcd/dhcpcd.conf
 
+# Google Codecs
+PRODUCT_COPY_FILES += \
+        frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:system/etc/media_codecs_google_audio.xml \
+        frameworks/av/media/libstagefright/data/media_codecs_google_telephony.xml:system/etc/media_codecs_google_telephony.xml \
+        frameworks/av/media/libstagefright/data/media_codecs_google_video.xml:system/etc/media_codecs_google_video.xml
+
 # KitKat Launcher
 PRODUCT_PACKAGES += Launcher3        
 

@@ -80,8 +80,10 @@ Only the three quirks included above are recognized at this point:
 -->
 
 <MediaCodecs>
-    <Decoders>
+    <Include href="media_codecs_google_audio.xml" />
+    <Include href="media_codecs_google_telephony.xml" />
 
+    <Decoders>
         <!-- ST-Ericsson video codec -->
         <MediaCodec name="OMX.ST.VFM.MPEG4Dec" >
             <Type name="video/mp4v-es" />
@@ -89,24 +91,16 @@ Only the three quirks included above are recognized at this point:
             <Quirk name="requires-allocate-on-input-ports" />
             <Quirk name="requires-allocate-on-output-ports" />
         </MediaCodec>
-        <MediaCodec name="OMX.google.mpeg4.decoder" type="video/mp4v-es" />
-        <MediaCodec name="OMX.google.h263.decoder" type="video/3gpp" />
         <MediaCodec name="OMX.ST.VFM.MPEG4HostDec" >
             <Type name="video/3gpp-sw" />
             <Quirk name="requires-allocate-on-input-ports" />
             <Quirk name="requires-allocate-on-output-ports" />
         </MediaCodec>
-
         <MediaCodec name="OMX.ST.VFM.H264Dec" >
             <Type name="video/avc" />
             <Quirk name="requires-allocate-on-input-ports" />
             <Quirk name="requires-allocate-on-output-ports" />
         </MediaCodec>
-        <MediaCodec name="OMX.google.h264.decoder" >
-            <Type name="video/avc" />
-            <Quirk name="requires-flush-before-shutdown" />
-        </MediaCodec>
-
         <MediaCodec name="OMX.ST.VFM.VC1Dec" >
             <Type name="video/vc1" />
             <Quirk name="requires-allocate-on-input-ports" />
@@ -116,27 +110,6 @@ Only the three quirks included above are recognized at this point:
         <!-- ST-Ericsson audio codec -->
         <MediaCodec name="OMX.ST.mp3.decoder" type="audio/mpeg" />
         <MediaCodec name="OMX.ST.AFM.decoder.wmapro_v10" type="audio/x-ms-wma" />
-
-        <!-- google audio codec -->
-        <MediaCodec name="OMX.google.aac.decoder" type="audio/mp4a-latm" />
-        <MediaCodec name="OMX.google.amrnb.decoder" type="audio/3gpp" />
-        <MediaCodec name="OMX.google.amrwb.decoder" type="audio/amr-wb" />
-        <MediaCodec name="OMX.google.g711.alaw.decoder" type="audio/g711-alaw" />
-        <MediaCodec name="OMX.google.g711.mlaw.decoder" type="audio/g711-mlaw" />
-        <MediaCodec name="OMX.google.vorbis.decoder" >
-            <Type name="audio/vorbis" />
-            <Quirk name="requires-flush-before-shutdown" />
-        </MediaCodec>
-
-        <MediaCodec name="OMX.google.mp3.decoder" >
-            <Type name="audio/mpeg" />
-            <Quirk name="requires-flush-before-shutdown" />
-        </MediaCodec>
-
-        <!-- google video codec -->
-        <MediaCodec name="OMX.google.vp8.decoder" type="video/x-vnd.on2.vp8" />
-        <MediaCodec name="OMX.google.vp9.decoder" type="video/x-vnd.on2.vp9" />
-
     </Decoders>
 
     <Encoders>
@@ -147,20 +120,13 @@ Only the three quirks included above are recognized at this point:
             <Quirk name="requires-allocate-on-output-ports" />
             <Quirk name="requires-store-metadata-before-idle" />
         </MediaCodec>
-
         <MediaCodec name="OMX.ST.VFM.H264Enc" type="video/avc" >
             <Quirk name="requires-allocate-on-input-ports" />
             <Quirk name="requires-allocate-on-output-ports" />
             <Quirk name="requires-store-metadata-before-idle" />
         </MediaCodec>
-
-        <!-- google audio codec -->
-        <MediaCodec name="OMX.google.amrnb.encoder" type="audio/3gpp" />
-        <MediaCodec name="OMX.google.amrwb.encoder" type="audio/amr-wb" />
-        <MediaCodec name="OMX.google.aac.encoder" type="audio/mp4a-latm" />
-        <MediaCodec name="OMX.google.flac.encoder" type="audio/flac" />
-
-        <!-- google video codec -->
-        <MediaCodec name="OMX.google.vp8.encoder" type="video/x-vnd.on2.vp8" />
     </Encoders>
+
+    <Include href="media_codecs_google_video.xml" />
+
 </MediaCodecs>
