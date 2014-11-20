@@ -62,6 +62,12 @@ BOARD_HAVE_PIXEL_FORMAT_INFO := true
 # Misc
 COMMON_GLOBAL_CFLAGS += -DNEEDS_VECTORIMPL_SYMBOLS
 
+# Enable Minikin text layout engine (will be the default soon)
+USE_MINIKIN := true
+
+# Include an expanded selection of fonts
+EXTENDED_FONT_FOOTPRINT := true
+
 # FM Radio
 #COMMON_GLOBAL_CFLAGS += -DAUDIO_EXTN_FM_ENABLED
 
