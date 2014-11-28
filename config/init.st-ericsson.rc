@@ -231,6 +231,9 @@ on post-fs-data
     chown radio radio /dev/rpc
     chmod 0600 /dev/rpc
 
+    # Run sysinit
+    start sysinit
+
 on early-boot
 
     # Start the offline charging
@@ -430,7 +433,12 @@ service admsrv /system/bin/admsrv
     ioprio rt 4
     capability NET_ADMIN NET_RAW SYS_NICE
 
-    
+# sysinit (/system/etc/init.d)
+service sysinit /system/bin/sysinit
+    user root
+    oneshot
+    disabled
+
 # Initialize Bluetooth/FM/GPS chip
 service init_ste-cg2900 /system/bin/hciattach -a 23 -n -s 115200 /dev/ttyAMA0 cg2900 115200 flow
     user bluetooth

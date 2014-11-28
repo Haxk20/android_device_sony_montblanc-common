@@ -51,6 +51,10 @@ PRODUCT_COPY_FILES += \
         frameworks/av/media/libstagefright/data/media_codecs_google_telephony.xml:system/etc/media_codecs_google_telephony.xml \
         frameworks/av/media/libstagefright/data/media_codecs_google_video.xml:system/etc/media_codecs_google_video.xml
 
+# init.d support
+PRODUCT_COPY_FILES += \
+        device/sony/montblanc-common/config/sysinit:system/bin/sysinit
+
 # KitKat Launcher
 PRODUCT_PACKAGES += Launcher3        
 
