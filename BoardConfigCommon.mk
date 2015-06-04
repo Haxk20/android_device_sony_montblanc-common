@@ -34,7 +34,9 @@ BOARD_KERNEL_PAGESIZE := 2048
 BOARD_MKBOOTIMG_ARGS := --ramdisk_offset $(BOARD_RAMDISK_ADDRESS)
 BOARD_RECOVERY_BASE := 0x40200000
 TARGET_KERNEL_SOURCE := kernel/sony/u8500
-TARGET_KERNEL_CUSTOM_TOOLCHAIN := arm-eabi-4.8
+ifeq ($(HOST_OS),linux)
+KERNEL_TOOLCHAIN := $(ANDROID_BUILD_TOP)/prebuilts/gcc/linux-x86/arm/arm-eabi-4.8/bin
+endif
 
 # Bluetooth
 BOARD_HAVE_BLUETOOTH := true
