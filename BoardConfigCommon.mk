@@ -149,6 +149,7 @@ BOARD_SEPOLICY_UNION += \
     hci_attach.te \
     init.te \
     iw.te \
+    mediaserver.te \
     modem-helpers.te \
     psccd.te \
     rild.te \
