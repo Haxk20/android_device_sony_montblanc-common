@@ -116,7 +116,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.sys.bluetooth.handsfree=hfp_wbs \
     ro.zygote.disable_gl_preload=true \
     debug.hwui.render_dirty_regions=false \
-    persist.sys.strictmode.disable=true
+    persist.sys.strictmode.disable=true \
+    ro.build.selinux=1
 
 # RIL
 PRODUCT_PROPERTY_OVERRIDES += \
