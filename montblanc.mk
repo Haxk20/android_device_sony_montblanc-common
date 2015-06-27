@@ -64,6 +64,10 @@ PRODUCT_COPY_FILES += \
     $(COMMON_PATH)/config/sensor00_f11_sensor0.idc:system/usr/idc/sensor00_f11_sensor0.idc \
     $(COMMON_PATH)/config/synaptics_rmi4_i2c.idc:system/usr/idc/synaptics_rmi4_i2c.idc
 
+# HAL
+PRODUCT_PACKAGES += \
+    sensors.montblanc
+
 # Filesystem management tools
 PRODUCT_PACKAGES += \
     setup_fs \
