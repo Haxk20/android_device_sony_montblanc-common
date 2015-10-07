@@ -120,7 +120,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.sys.strictmode.disable=true \
     ro.opengles.version=131072 \
     ro.zygote.disable_gl_preload=true \
-    sys.io.scheduler=bfq \
+    sys.io.scheduler=row \
     wifi.interface=wlan0
 
 # RIL
