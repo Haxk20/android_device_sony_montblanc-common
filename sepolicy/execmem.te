@@ -7,7 +7,6 @@ conn_init
 copsd
 gpsd
 init
-init_shell
 modem-help
 psccd
 rild
