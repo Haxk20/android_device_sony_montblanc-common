@@ -277,9 +277,6 @@ on boot
     # SEMC: Change permission for MTP device file
     chmod 0666 /dev/mtp
 
-    # SEMC: Include IO wait time into CPU usage calculation to increase IO performance
-    write /sys/devices/system/cpu/cpufreq/ondemand/io_is_busy 1
-
     write /proc/sys/kernel/sysrq 0
 
     # KSM parameters
