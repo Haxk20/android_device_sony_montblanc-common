@@ -72,11 +72,11 @@ on fs
 
     # SEMC: Start the TrimArea Daemon and early TA-users
     class_start trimarea
-    exec /system/bin/wait4tad
+    exec - root root -- /system/bin/wait4tad
     # Put all other TA-users after wait4tad
-    exec /system/bin/startupflag bootstarted
-    exec /system/bin/rfhal_export
-    exec /system/bin/taimport
+    exec - root root -- /system/bin/startupflag bootstarted
+    exec - root root -- /system/bin/rfhal_export
+    exec - root root -- /system/bin/taimport
 
 on post-fs
     chown radio radio /modemfs
@@ -167,7 +167,7 @@ on post-fs-data
 on early-boot
 
     # Start the offline charging
-    exec /system/bin/chargemon
+    exec - root root -- /system/bin/chargemon
 
     # STE: Launch core services in case charging mode is entered
     start watchdog-kicker
@@ -526,15 +526,15 @@ on property:init.svc.wpa_supplicant=stopped
 
 on property:init.svc.dhcpcd_wlan0=stopped
     stop dhcpcd
-    exec /system/bin/rm -r /data/misc/dhcp/
+    exec - root root -- /system/bin/rm -r /data/misc/dhcp/
 
 on property:dhcp.wlan0.result=ok
-    exec /system/bin/iw phy phy0 wowlan enable any
+    exec - root root -- /system/bin/iw phy phy0 wowlan enable any
 
 # delete tethered interface and bring down wlan0
 on property:init.svc.hostapd=stopped
-    exec /system/bin/iw dev mon.wlan0 del
-    exec /system/bin/netcfg wlan0 down
+    exec - root root -- /system/bin/iw dev mon.wlan0 del
+    exec - root root -- /system/bin/netcfg wlan0 down
 
 on property:init.svc.bluetoothd=stopped
     write /sys/class/rfkill/rfkill1/state 0
