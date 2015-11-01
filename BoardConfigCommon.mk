@@ -104,6 +104,7 @@ endif
 
 # Disable secure discard
 COMMON_GLOBAL_CFLAGS += -DNO_SECURE_DISCARD
+COMMON_GLOBAL_CPPFLAGS += -DNO_SECURE_DISCARD
 
 # TWRP Recovery
 TW_THEME := portrait_mdpi
