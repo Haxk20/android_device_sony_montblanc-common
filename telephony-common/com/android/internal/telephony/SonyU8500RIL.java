@@ -44,6 +44,31 @@ public class SonyU8500RIL extends RIL implements CommandsInterface {
         this(context, preferredNetworkType, cdmaSubscription);
     }
 
+    private void
+    setNetworkSelectionMode(String operatorNumeric, Message response) {
+        RILRequest rr;
+
+        if (operatorNumeric == null)
+            rr = RILRequest.obtain(RIL_REQUEST_SET_NETWORK_SELECTION_AUTOMATIC, response);
+        else
+            rr = RILRequest.obtain(RIL_REQUEST_SET_NETWORK_SELECTION_MANUAL, response);
+
+        rr.mParcel.writeString(operatorNumeric);
+        rr.mParcel.writeInt(-1);
+
+        send(rr);
+    }
+
+    private void
+    handleUnsupportedRequest(Message response) {
+        if (response != null) {
+            CommandException ex = new CommandException(
+                CommandException.Error.REQUEST_NOT_SUPPORTED);
+            AsyncResult.forMessage(response, null, ex);
+            response.sendToTarget();
+        }
+    }
+
     @Override
     public void
     dial(String address, int clirMode, UUSInfo uusInfo, Message result) {
@@ -67,21 +92,6 @@ public class SonyU8500RIL extends RIL implements CommandsInterface {
         send(rr);
     }
 
-    public void
-    setNetworkSelectionMode(String operatorNumeric, Message response) {
-        RILRequest rr;
-
-        if (operatorNumeric == null)
-            rr = RILRequest.obtain(RIL_REQUEST_SET_NETWORK_SELECTION_AUTOMATIC, response);
-        else
-            rr = RILRequest.obtain(RIL_REQUEST_SET_NETWORK_SELECTION_MANUAL, response);
-
-        rr.mParcel.writeString(operatorNumeric);
-        rr.mParcel.writeInt(-1);
-
-        send(rr);
-    }
-
     @Override
     public void
     setNetworkSelectionModeAutomatic(Message response) {
@@ -96,29 +106,15 @@ public class SonyU8500RIL extends RIL implements CommandsInterface {
 
     @Override
     public void getImsRegistrationState(Message result) {
-        if(mRilVersion >= 8)
-            super.getImsRegistrationState(result);
-        else {
-            Rlog.i(LOG_TAG, "getImsRegistrationState: not supported");
-            if (result != null) {
-                CommandException ex = new CommandException(
-                    CommandException.Error.REQUEST_NOT_SUPPORTED);
-                AsyncResult.forMessage(result, null, ex);
-                result.sendToTarget();
-            }
-        }
+        Rlog.i(LOG_TAG, "RIL_REQUEST_IMS_REGISTRATION_STATE is not supported");
+        handleUnsupportedRequest(result);
     }
 
     @Override
     public void
     getHardwareConfig (Message result) {
-        Rlog.i(LOG_TAG, "getHardwareConfig: not supported");
-        if (result != null) {
-            CommandException ex = new CommandException(
-                CommandException.Error.REQUEST_NOT_SUPPORTED);
-            AsyncResult.forMessage(result, null, ex);
-            result.sendToTarget();
-        }
+        Rlog.i(LOG_TAG, "RIL_REQUEST_GET_HARDWARE_CONFIG is not supported");
+        handleUnsupportedRequest(result);
     }
 
     /**
@@ -126,13 +122,8 @@ public class SonyU8500RIL extends RIL implements CommandsInterface {
      */
     @Override
     public void getCellInfoList(Message result) {
-        Rlog.i(LOG_TAG, "getCellInfoList: not supported");
-        if (result != null) {
-            CommandException ex = new CommandException(
-                CommandException.Error.REQUEST_NOT_SUPPORTED);
-            AsyncResult.forMessage(result, null, ex);
-            result.sendToTarget();
-        }
+        Rlog.i(LOG_TAG, "RIL_REQUEST_GET_CELL_INFO_LIST is not supported");
+        handleUnsupportedRequest(result);
     }
 
     /**
@@ -140,12 +131,7 @@ public class SonyU8500RIL extends RIL implements CommandsInterface {
      */
     @Override
     public void setCellInfoListRate(int rateInMillis, Message response) {
-        Rlog.i(LOG_TAG, "setCellInfoListRate: not supported");
-        if (response != null) {
-            CommandException ex = new CommandException(
-                CommandException.Error.REQUEST_NOT_SUPPORTED);
-            AsyncResult.forMessage(response, null, ex);
-            response.sendToTarget();
-        }
+        Rlog.i(LOG_TAG, "RIL_REQUEST_SET_UNSOL_CELL_INFO_LIST_RATE is not supported");
+        handleUnsupportedRequest(response);
     }
 }
