@@ -104,9 +104,12 @@ public class SonyU8500RIL extends RIL implements CommandsInterface {
         setNetworkSelectionMode(operatorNumeric, response);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
-    public void getImsRegistrationState(Message result) {
-        Rlog.i(LOG_TAG, "RIL_REQUEST_IMS_REGISTRATION_STATE is not supported");
+    public void getCellInfoList(Message result) {
+        Rlog.i(LOG_TAG, "RIL_REQUEST_GET_CELL_INFO_LIST is not supported");
         handleUnsupportedRequest(result);
     }
 
@@ -117,13 +120,16 @@ public class SonyU8500RIL extends RIL implements CommandsInterface {
         handleUnsupportedRequest(result);
     }
 
-    /**
-     * {@inheritDoc}
-     */
     @Override
-    public void getCellInfoList(Message result) {
-        Rlog.i(LOG_TAG, "RIL_REQUEST_GET_CELL_INFO_LIST is not supported");
+    public void getImsRegistrationState(Message result) {
+        Rlog.i(LOG_TAG, "RIL_REQUEST_IMS_REGISTRATION_STATE is not supported");
         handleUnsupportedRequest(result);
+    }
+
+    @Override
+    public void getRadioCapability(Message response) {
+        Rlog.i(LOG_TAG, "RIL_REQUEST_GET_RADIO_CAPABILITY is not supported");
+        handleUnsupportedRequest(response);
     }
 
     /**
@@ -134,4 +140,17 @@ public class SonyU8500RIL extends RIL implements CommandsInterface {
         Rlog.i(LOG_TAG, "RIL_REQUEST_SET_UNSOL_CELL_INFO_LIST_RATE is not supported");
         handleUnsupportedRequest(response);
     }
+
+    public void setInitialAttachApn(String apn, String protocol, int authType, String username,
+            String password, Message result) {
+        Rlog.i(LOG_TAG, "RIL_REQUEST_SET_INITIAL_ATTACH_APN is not supported");
+        handleUnsupportedRequest(result);
+    }
+
+    @Override
+    public void startLceService(int reportIntervalMs, boolean pullMode, Message response) {
+        Rlog.i(LOG_TAG, "RIL_REQUEST_START_LCE is not supported");
+        handleUnsupportedRequest(response);
+    }
+
 }
