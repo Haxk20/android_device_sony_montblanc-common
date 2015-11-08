@@ -124,6 +124,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     debug.hwui.render_dirty_regions=false \
     persist.sys.bluetooth.handsfree=hfp_wbs \
     persist.sys.strictmode.disable=true \
+    ro.disableWifiApFirmwareReload=true \
     ro.opengles.version=131072 \
     ro.zygote.disable_gl_preload=true \
     sys.io.scheduler=row \
