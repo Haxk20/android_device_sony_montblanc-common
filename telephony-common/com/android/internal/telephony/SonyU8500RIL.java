@@ -35,13 +35,13 @@ public class SonyU8500RIL extends RIL implements CommandsInterface {
     static final String LOG_TAG = "SonyU8500RIL";
 
     public SonyU8500RIL(Context context, int networkMode, int cdmaSubscription) {
-        super(context, networkMode, cdmaSubscription);
-        mQANElements = 5;
+        this(context, networkMode, cdmaSubscription, null);
     }
 
     public SonyU8500RIL(Context context, int preferredNetworkType,
             int cdmaSubscription, Integer instanceId) {
-        this(context, preferredNetworkType, cdmaSubscription);
+        super(context, preferredNetworkType, cdmaSubscription, instanceId);
+        mQANElements = 5;
     }
 
     private void
