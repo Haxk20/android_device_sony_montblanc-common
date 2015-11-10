@@ -26,6 +26,8 @@ import android.text.TextUtils;
 import android.telephony.Rlog;
 import java.util.ArrayList;
 
+import com.android.internal.telephony.cdma.CdmaSmsBroadcastConfigInfo;
+
 /*
  * Custom NovaThor SimReady RIL for Sony Radio
  *
@@ -126,6 +128,12 @@ public class SonyU8500RIL extends RIL implements CommandsInterface {
         handleUnsupportedRequest(result);
     }
 
+    @Override
+    public void setCdmaBroadcastConfig(CdmaSmsBroadcastConfigInfo[] configs, Message response) {
+        Rlog.i(LOG_TAG, "RIL_REQUEST_CDMA_SET_BROADCAST_CONFIG is not supported");
+        handleUnsupportedRequest(response);
+    }
+
     /**
      * {@inheritDoc}
      */
@@ -133,5 +141,10 @@ public class SonyU8500RIL extends RIL implements CommandsInterface {
     public void setCellInfoListRate(int rateInMillis, Message response) {
         Rlog.i(LOG_TAG, "RIL_REQUEST_SET_UNSOL_CELL_INFO_LIST_RATE is not supported");
         handleUnsupportedRequest(response);
+    }
+
+    public void setDataAllowed(boolean allowed, Message result) {
+        Rlog.i(LOG_TAG, "RIL_REQUEST_ALLOW_DATA is not supported");
+        handleUnsupportedRequest(result);
     }
 }
