@@ -12,7 +12,7 @@ ste.nmf.autoidle=true
 # Fast Dormancy based on USB Tether Events and Screen States
 ste.special_fast_dormancy=false
 
-#STE: Hardware video codecs configuration
+# STE: Hardware video codecs configuration
 ste.video.dec.mpeg4.in.size=8192
 ste.video.enc.out.buffercnt=5
 ste.video.dec.recycle.delay=1

@@ -21,13 +21,4 @@
     <integer name="def_screen_off_timeout">30000</integer>
     <fraction name="def_window_animation_scale">50%</fraction>
     <fraction name="def_window_transition_scale">50%</fraction>
-
-    <!-- Default value of Settings.System.ENABLE_FORWARD_LOOKUP -->
-    <!-- <integer name="def_forward_lookup">0</integer> -->
-
-    <!-- Default value of Settings.System.ENABLE_PEOPLE_LOOKUP -->
-    <!-- <integer name="def_people_lookup">0</integer> -->
-
-    <!-- Default value of Settings.System.ENABLE_REVERSE_LOOKUP -->
-    <!-- <integer name="def_reverse_lookup">0</integer> -->
 </resources>
