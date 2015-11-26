@@ -102,6 +102,7 @@ TARGET_USERIMAGES_USE_EXT4 := true
 ifeq ($(HOST_OS),linux)
 TARGET_USERIMAGES_USE_F2FS := true
 endif
+WITH_EXFAT := false
 
 # Disable secure discard
 COMMON_GLOBAL_CFLAGS += -DNO_SECURE_DISCARD
