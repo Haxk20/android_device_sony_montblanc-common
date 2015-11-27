@@ -151,9 +151,6 @@ on post-fs-data
     # create basic filesystem structure
     mkdir /data/misc/hcid 0770 bluetooth bluetooth
     mkdir /data/misc/psdata
-    mkdir /data/misc/telephony_log_levels
-    chmod 0660 /data/misc/telephony_log_levels
-    chown root radio /data/misc/telephony_log_levels
 
     # Create directory for STE OMX debug logs
     mkdir /data/ste-debug 0777 root root
