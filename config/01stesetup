@@ -1,5 +1,9 @@
 #!/system/bin/sh
 
+if [ -d /data/misc/telephony_log_levels ]; then
+    rm -rf /data/misc/telephony_log_levels
+fi
+
 cp -f /system/etc/plmn.operator.nitz.list /data/misc/plmn.operator.nitz.list
 cp -f /system/etc/ril_config /data/misc/ril_config
 cp -f /system/etc/telephony_log_levels /data/misc/telephony_log_levels
