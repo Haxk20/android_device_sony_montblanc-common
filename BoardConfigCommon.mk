@@ -25,6 +25,7 @@ TARGET_NEEDS_TEXT_RELOCS_SUPPORT := true
 
 # RIL implementation
 BOARD_RIL_CLASS := ../../../device/sony/montblanc-common/telephony-common/
+COMMON_GLOBAL_CFLAGS += -DDISABLE_ASHMEM_TRACKING
 
 # Kernel information
 BOARD_KERNEL_ADDRESS := 0x00008000
