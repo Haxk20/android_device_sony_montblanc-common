@@ -24,7 +24,6 @@ BOARD_USES_LEGACY_MMAP := true
 TARGET_NEEDS_TEXT_RELOCS_SUPPORT := true
 
 # RIL implementation
-TARGET_RIL_VARIANT := caf
 BOARD_RIL_CLASS := ../../../device/sony/montblanc-common/telephony-common/
 
 # Kernel information
