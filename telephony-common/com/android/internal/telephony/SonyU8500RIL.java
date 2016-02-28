@@ -33,15 +33,15 @@ import com.android.internal.telephony.cdma.CdmaSmsBroadcastConfigInfo;
  *
  * {@hide}
  */
-public class SonyU8500RIL extends RIL implements CommandsInterface {
+   public class SonyU8500RIL extends RIL implements CommandsInterface {
     static final String LOG_TAG = "SonyU8500RIL";
 
-    public SonyU8500RIL(Context context, int networkMode, int cdmaSubscription) {
-        this(context, networkMode, cdmaSubscription, null);
+    public SonyU8500RIL(Context context, int preferredNetworkType, int cdmaSubscription) {
+        this(context, preferredNetworkType, cdmaSubscription, null);
     }
 
-    public SonyU8500RIL(Context context, int preferredNetworkType,
-            int cdmaSubscription, Integer instanceId) {
+        public SonyU8500RIL(Context context, int preferredNetworkType,
+        int cdmaSubscription, Integer instanceId) {
         super(context, preferredNetworkType, cdmaSubscription, instanceId);
         mQANElements = 5;
     }
@@ -59,7 +59,7 @@ public class SonyU8500RIL extends RIL implements CommandsInterface {
         rr.mParcel.writeInt(-1);
 
         send(rr);
-    }
+        }
 
     private void
     handleUnsupportedRequest(Message response) {
@@ -129,12 +129,6 @@ public class SonyU8500RIL extends RIL implements CommandsInterface {
     }
 
     @Override
-    public void getRadioCapability(Message response) {
-        Rlog.i(LOG_TAG, "RIL_REQUEST_GET_RADIO_CAPABILITY is not supported");
-        handleUnsupportedRequest(response);
-    }
-
-    @Override
     public void setCdmaBroadcastConfig(CdmaSmsBroadcastConfigInfo[] configs, Message response) {
         Rlog.i(LOG_TAG, "RIL_REQUEST_CDMA_SET_BROADCAST_CONFIG is not supported");
         handleUnsupportedRequest(response);
@@ -165,5 +159,31 @@ public class SonyU8500RIL extends RIL implements CommandsInterface {
         Rlog.i(LOG_TAG, "RIL_REQUEST_START_LCE is not supported");
         handleUnsupportedRequest(response);
     }
+    @Override
+    public void getRadioCapability(Message response) {
+        riljLog("getRadioCapability: returning static radio capability");
+        if (response != null) {
+        Object ret = makeStaticRadioCapability();
+        AsyncResult.forMessage(response, ret, null);
+        response.sendToTarget();
+    }
+    }
 
+        protected Object
+        responseFailCause(Parcel p) {
+        int numInts;
+        int response[];
+
+        numInts = p.readInt();
+        response = new int[numInts];
+        for (int i = 0 ; i < numInts ; i++) {
+        response[i] = p.readInt();
+    }
+        LastCallFailCause failCause = new LastCallFailCause();
+        failCause.causeCode = response[0];
+        if (p.dataAvail() > 0) {
+        failCause.vendorCause = p.readString();
+    }
+        return failCause;
+    } 
 }
