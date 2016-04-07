@@ -36,14 +36,10 @@ import com.android.internal.telephony.cdma.CdmaSmsBroadcastConfigInfo;
 public class SonyU8500RIL extends RIL implements CommandsInterface {
     static final String LOG_TAG = "SonyU8500RIL";
 
-    public SonyU8500RIL(Context context, int networkMode, int cdmaSubscription) {
-        super(context, networkMode, cdmaSubscription);
+    public SonyU8500RIL(Context context, int networkMode, int cdmaSubscription, Integer instanceId) {
+        super(context, networkMode, cdmaSubscription, instanceId);
         mQANElements = 5;
-    }
-
-    public SonyU8500RIL(Context context, int preferredNetworkType,
-            int cdmaSubscription, Integer instanceId) {
-        this(context, preferredNetworkType, cdmaSubscription);
+        mContext = context;
     }
 
     private void
