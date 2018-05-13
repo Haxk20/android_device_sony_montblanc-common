@@ -1,3 +1,8 @@
+LOCAL_PATH := device/sony/nypon
+COMMON_PATH := device/sony/montblanc-common
+TARGET_SPECIFIC_HEADER_PATH += $(COMMON_PATH)/include
+include $(COMMON_PATH)/board/*.mk
+
 # Platform
 TARGET_BOARD_PLATFORM := montblanc
 TARGET_BOOTLOADER_BOARD_NAME := montblanc
