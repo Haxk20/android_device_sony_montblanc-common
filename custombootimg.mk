@@ -89,6 +89,20 @@ $(INSTALLED_RECOVERYIMAGE_TARGET): $(MKBOOTIMG) \
 		$(recovery_ramdisk) \
 		$(recovery_kernel)
 	@echo "----- Making recovery image ------"
-	$(hide) python $(MKELF) $(MKELF_ARGS) -o $(PRODUCT_OUT)/kernel.elf $(PRODUCT_OUT)/kernel@$(BOARD_KERNEL_ADDRESS) $(PRODUCT_OUT)/ramdisk-recovery.img@$(BOARD_RAMDISK_ADDRESS),ramdisk $(LOCAL_PATH)/../$(TARGET_DEVICE)/config/cmdline@cmdline
-	$(hide) $(call assert-max-image-size,$@,$(BOARD_RECOVERYIMAGE_PARTITION_SIZE))
+	$(hide) python $(MKELF) -o $(PRODUCT_OUT)/recovery.elf $(PRODUCT_OUT)/kernel@$(BOARD_KERNEL_ADDRESS) $(PRODUCT_OUT)/ramdisk-recovery.img@$(BOARD_RAMDISK_ADDRESS),ramdisk $(LOCAL_PATH)/../$(TARGET_DEVICE)/config/cmdline@cmdline
+
+        $(hide) dd if=$(PRODUCT_OUT)/recovery.elf of=$(PRODUCT_OUT)/recovery.elf.bak bs=1 count=44
+        $(hide) printf "\x04" >$(PRODUCT_OUT)/_04
+        $(hide) cat $(PRODUCT_OUT)/recovery.elf.bak $(PRODUCT_OUT)/_04 > $(PRODUCT_OUT)/recovery.elf.bak2
+        $(hide) rm -rf $(PRODUCT_OUT)/recovery.elf.bak
+        $(hide) dd if=$(PRODUCT_OUT)/recovery.elf of=$(PRODUCT_OUT)/recovery.elf.bak bs=1 skip=45 count=99
+        $(hide) cat $(PRODUCT_OUT)/recovery.elf.bak2 $(PRODUCT_OUT)/recovery.elf.bak > $(PRODUCT_OUT)/recovery.elf.bak3
+        $(hide) rm -rf $(PRODUCT_OUT)/recovery.elf.bak $(PRODUCT_OUT)/recovery.elf.bak2
+        $(hide) cat $(PRODUCT_OUT)/recovery.elf.bak3 $(LOCAL_PATH)/../$(TARGET_DEVICE)/prebuilt/elf.3 > $(PRODUCT_OUT)/recovery.elf.bak
+        $(hide) rm -rf $(PRODUCT_OUT)/recovery.elf.bak3
+        $(hide) dd if=$(PRODUCT_OUT)/recovery.elf of=$(PRODUCT_OUT)/recovery.elf.bak2 bs=16 skip=79
+        $(hide) cat $(PRODUCT_OUT)/recovery.elf.bak $(PRODUCT_OUT)/recovery.elf.bak2 > $(PRODUCT_OUT)/recovery.elf.bak3
+        $(hide) rm -rf $(PRODUCT_OUT)/recovery.elf.bak $(PRODUCT_OUT)/recovery.elf.bak2 $(PRODUCT_OUT)/recovery.elf $(PRODUCT_OUT)/_04
+        $(hide) mv $(PRODUCT_OUT)/recovery.elf.bak3 $(PRODUCT_OUT)/recovery.img
+        $(hide) $(call assert-max-image-size,$@,$(BOARD_RECOVERYIMAGE_PARTITION_SIZE))
 	$(call pretty,"Made recovery image: $@")
