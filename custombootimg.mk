@@ -24,6 +24,7 @@ $(recovery_uncompressed_device_ramdisk): $(MKBOOTFS) \
 		$(INSTALLED_2NDBOOTLOADER_TARGET) \
 		$(recovery_build_prop) $(recovery_resource_deps) $(recovery_root_deps) \
 		$(recovery_fstab) \
+		$(INSTALLED_VENDOR_DEFAULT_PROP_TARGET) \
 		$(RECOVERY_INSTALL_OTA_KEYS) \
 		$(INTERNAL_BOOTIMAGE_FILES)
 	$(call build-recoveryramdisk)
