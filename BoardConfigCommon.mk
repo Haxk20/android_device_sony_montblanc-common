@@ -33,6 +33,7 @@ BOARD_RIL_CLASS := ../../../device/sony/montblanc-common/telephony-common/
 COMMON_GLOBAL_CFLAGS += -DDISABLE_ASHMEM_TRACKING
 
 # Kernel information
+BOARD_KERNEL_IMAGE_NAME := zImage
 BOARD_KERNEL_ADDRESS := 0x00008000
 BOARD_RAMDISK_ADDRESS := 0x01000000
 BOARD_KERNEL_BASE := 0x40200000
@@ -41,7 +42,7 @@ BOARD_MKBOOTIMG_ARGS := --ramdisk_offset $(BOARD_RAMDISK_ADDRESS)
 BOARD_RECOVERY_BASE := 0x40200000
 TARGET_KERNEL_SOURCE := kernel/sony/u8500
 ifeq ($(HOST_OS),linux)
-KERNEL_TOOLCHAIN := $(ANDROID_BUILD_TOP)/prebuilts/gcc/linux-x86/arm/arm-eabi-4.8/bin
+KERNEL_TOOLCHAIN := $(ANDROID_BUILD_TOP)/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.9/bin
 endif
 
 # Bluetooth
@@ -114,7 +115,7 @@ COMMON_GLOBAL_CFLAGS += -DNO_SECURE_DISCARD
 COMMON_GLOBAL_CPPFLAGS += -DNO_SECURE_DISCARD
 
 # TWRP Recovery
-TW_THEME := portrait_mdpi
+TW_THEME := portrait_hdpi
 BOARD_USE_CUSTOM_RECOVERY_FONT := \"roboto_10x18.h\"
 BOARD_HAS_NO_SELECT_BUTTON := true
 COMMON_GLOBAL_CFLAGS += -DXPERIA_TWRP_TOUCH
@@ -140,6 +141,5 @@ TARGET_SYSTEM_PROP := device/sony/montblanc-common/system.prop
 
 # SELinux
 BOARD_SEPOLICY_DIRS += \
-    device/sony/montblanc-common/sepolicy \
     external/bluetooth/bluez/android
 

@@ -1,2 +1,0 @@
-allow init self:capability sys_module;
-allow init modem_file:file relabelto;

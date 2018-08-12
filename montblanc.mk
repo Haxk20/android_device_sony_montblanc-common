@@ -79,11 +79,62 @@ PRODUCT_PACKAGES += \
     tinyalsa \
     libtinyalsa \
     audio.usb.default
+
+# HIDL
+PRODUCT_COPY_FILES += \
+$(LOCAL_PATH)/manifest.xml:system/vendor/manifest.xml \
+$(LOCAL_PATH)/manifest.xml:system/manifest.xml
+
+#
+PRODUCT_PACKAGES += \
+android.hardware.keymaster@3.0-service \
+android.hardware.keymaster@3.0-impl
+# Bluetooth HAL
+PRODUCT_PACKAGES += \
+android.hardware.bluetooth@1.0-impl
+# wificond
+PRODUCT_PACKAGES += \
+wificond
+# Wifi
+PRODUCT_PACKAGES += \
+android.hardware.wifi@1.0-service
+# USB HAL
+PRODUCT_PACKAGES += \
+android.hardware.usb@1.0-service
+# Power
+PRODUCT_PACKAGES += \
+android.hardware.power@1.0-impl
+# vibrato
+PRODUCT_PACKAGES += \
+android.hardware.vibrator@1.0-impl
+# Sensors
+#PRODUCT_PACKAGES += \
+#android.hardware.sensors@1.0-impl
+# GNSS HAL
+PRODUCT_PACKAGES += \
+android.hardware.gnss@1.0-impl
+# RenderScript HAL
+PRODUCT_PACKAGES += \
+android.hardware.renderscript@1.0-impl
+# DRM
+PRODUCT_PACKAGES += \
+android.hardware.drm@1.0-impl
+# Gatekeeper HAL
+#PRODUCT_PACKAGES += \
+#android.hardware.gatekeeper@1.0-service \
+#android.hardware.gatekeeper@1.0-impl
+# graphics HIDL interfaces
+PRODUCT_PACKAGES += \
+android.hardware.graphics.bufferqueue@1.0_hal \
+android.hardware.configstore@1.0_hal \
+android.hardware.configstore@1.0-service \
+android.hardware.configstore-utils
        
 # Hostapd & WIFI
 PRODUCT_PACKAGES += \
     hostapd_cli \
     hostapd \
+    wificond \
     wpa_supplicant \
     wpa_cli \
     libwpa_client

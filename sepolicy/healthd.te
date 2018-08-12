@@ -1,8 +1,0 @@
-# Our charger is a system binary
-type healthd_exec, exec_type, file_type;
-init_daemon_domain(healthd)
-
-allow healthd chargemon_prop:property_service set;
-allow healthd tmpfs:chr_file getattr;
-allow healthd sysfs_devices_system_cpu:file write;
-unix_socket_connect(healthd, tad, tad)

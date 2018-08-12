@@ -1,1 +1,0 @@
-allow { hostapd wpa } rfkill_device:chr_file rw_file_perms;
