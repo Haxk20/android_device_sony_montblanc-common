@@ -48,6 +48,7 @@ include $(BUILD_SHARED_LIBRARY)
 include $(CLEAR_VARS)
 
 LOCAL_SRC_FILES := md5/md5.c
+LOCAL_PROPRIETARY_MODULE := true
 LOCAL_MODULE := libmd5_symbols
 LOCAL_MODULE_TAGS := optional
 
