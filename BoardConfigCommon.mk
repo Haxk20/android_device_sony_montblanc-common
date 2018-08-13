@@ -115,7 +115,7 @@ COMMON_GLOBAL_CFLAGS += -DNO_SECURE_DISCARD
 COMMON_GLOBAL_CPPFLAGS += -DNO_SECURE_DISCARD
 
 # TWRP Recovery
-TW_THEME := portrait_hdpi
+TW_THEME := portrait_mdpi
 BOARD_USE_CUSTOM_RECOVERY_FONT := \"roboto_10x18.h\"
 BOARD_HAS_NO_SELECT_BUTTON := true
 COMMON_GLOBAL_CFLAGS += -DXPERIA_TWRP_TOUCH
@@ -138,6 +138,9 @@ TW_NO_EXFAT_FUSE := true
 
 # System proprieties
 TARGET_SYSTEM_PROP := device/sony/montblanc-common/system.prop
+
+# 64bit binder
+TARGET_USES_64_BIT_BINDER := true
 
 # SELinux
 BOARD_SEPOLICY_DIRS += \
