@@ -4,6 +4,10 @@ $(call inherit-product, hardware/ste-sony/common.mk)
 # Inherit from the vendor common montblanc definitions
 $(call inherit-product-if-exists, vendor/sony/montblanc-common/montblanc-common-vendor.mk)
 
+include $(LOCAL_PATH)/product/*.mk
+
+$(call inherit-product, build/target/product/go_defaults.mk)
+
 COMMON_PATH := device/sony/montblanc-common
 
 # Common montblanc settings overlays
@@ -130,6 +134,10 @@ android.hardware.configstore@1.0_hal \
 android.hardware.configstore@1.0-service \
 android.hardware.configstore-utils
        
+#Audio
+PRODUCT_PACKAGES += \
+android.hardware.audio@2.0-impl \
+android.hardware.audio.effect@2.0-impl
 # Hostapd & WIFI
 PRODUCT_PACKAGES += \
     hostapd_cli \
@@ -186,12 +194,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.telephony.ril_class=SonyU8500RIL \
     ro.telephony.ril.config=signalstrength \
     ro.telephony.call_ring.multiple=false
-
-# ART
-PRODUCT_PROPERTY_OVERRIDES += \
-    dalvik.vm.dex2oat-filter=interpret-only \
-    dalvik.vm.dex2oat-flags=--no-watch-dog \
-    dalvik.vm.image-dex2oat-filter=speed
 
 # Audio
 PRODUCT_PROPERTY_OVERRIDES += \

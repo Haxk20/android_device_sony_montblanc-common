@@ -91,6 +91,8 @@ EXTENDED_FONT_FOOTPRINT := true
 # STE healthd HAL
 BOARD_HAL_STATIC_LIBRARIES := libhealthd.montblanc
 
+USE_LEGACY_LOCAL_AUDIO_HAL := true 
+
 # Custom boot
 BOARD_CUSTOM_BOOTIMG := true
 BOARD_CUSTOM_BOOTIMG_MK := device/sony/montblanc-common/custombootimg.mk

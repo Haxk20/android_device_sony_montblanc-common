@@ -32,7 +32,7 @@
         <version>2.4</version>
         <interface>
             <name>ICameraProvider</name>
-            <instance>default</instance>
+            <instance>legacy/0</instance>
         </interface>
     </hal>
     <hal format="hidl">
@@ -119,6 +119,17 @@
             <instance>default</instance>
         </interface>
     </hal>
+<!--  
+    <hal format="hidl">
+        <name>android.hardware.gatekeeper</name>
+        <transport arch="32">passthrough</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IGatekeeper</name>
+            <instance>default</instance>
+        </interface>
+    </hal> 
+-->
     <hal format="hidl">
         <name>android.hardware.light</name>
         <transport arch="32">passthrough</transport>
