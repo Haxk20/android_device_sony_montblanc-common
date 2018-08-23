@@ -96,6 +96,10 @@ android.hardware.keymaster@3.0-impl
 # Bluetooth HAL
 PRODUCT_PACKAGES += \
 android.hardware.bluetooth@1.0-impl
+#Light HAL
+PRODUCT_PACKAGES += \
+android.hardware.light@2.0-impl
+
 # wificond
 PRODUCT_PACKAGES += \
 wificond
