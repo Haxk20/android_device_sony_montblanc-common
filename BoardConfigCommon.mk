@@ -144,6 +144,9 @@ TARGET_SYSTEM_PROP := device/sony/montblanc-common/system.prop
 # 64bit binder
 TARGET_USES_64_BIT_BINDER := true
 
+# ADB
+TARGET_USES_LEGACY_ADB_INTERFACE  := true
+
 # SELinux
 BOARD_SEPOLICY_DIRS += \
     external/bluetooth/bluez/android
