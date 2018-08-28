@@ -137,7 +137,12 @@ android.hardware.graphics.bufferqueue@1.0_hal \
 android.hardware.configstore@1.0_hal \
 android.hardware.configstore@1.0-service \
 android.hardware.configstore-utils
-       
+
+PRODUCT_PACKAGES += \
+android.hardware.graphics.allocator@2.0-impl-exynos4 \
+android.hardware.graphics.mapper@2.0-impl \
+android.hardware.graphics.composer@2.1-impl
+
 #Audio
 PRODUCT_PACKAGES += \
 android.hardware.audio@2.0-impl \
