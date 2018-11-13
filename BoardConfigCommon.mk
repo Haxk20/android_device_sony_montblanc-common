@@ -42,7 +42,7 @@ BOARD_MKBOOTIMG_ARGS := --ramdisk_offset $(BOARD_RAMDISK_ADDRESS)
 BOARD_RECOVERY_BASE := 0x40200000
 TARGET_KERNEL_SOURCE := kernel/sony/u8500
 ifeq ($(HOST_OS),linux)
-KERNEL_TOOLCHAIN := /home/Haxk20/los16.0/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.9/bin
+KERNEL_TOOLCHAIN := /home/haxk20/Data/lineage16.0/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.9/bin
 endif
 
 # Bluetooth
@@ -76,7 +76,6 @@ BOARD_EGL_WORKAROUND_BUG_10194508 := true
 TARGET_RUNNING_WITHOUT_SYNC_FRAMEWORK := true
 HWUI_COMPILE_FOR_PERF := true
 COMMON_GLOBAL_CFLAGS += -DTARGET_NEEDS_HWC_V0
-TARGET_USES_HWC2 := true
 
 # Bootanimation optimization flags
 TARGET_BOOTANIMATION_PRELOAD := true

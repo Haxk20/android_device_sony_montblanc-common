@@ -68,9 +68,6 @@ PRODUCT_COPY_FILES += \
     $(COMMON_PATH)/config/sensor00_f11_sensor0.idc:system/usr/idc/sensor00_f11_sensor0.idc \
     $(COMMON_PATH)/config/synaptics_rmi4_i2c.idc:system/usr/idc/synaptics_rmi4_i2c.idc
 
-# HAL
-PRODUCT_PACKAGES += \
-    sensors.montblanc
 
 # Filesystem management tools
 PRODUCT_PACKAGES += \
@@ -91,7 +88,6 @@ $(LOCAL_PATH)/manifest.xml:system/manifest.xml
 
 #
 PRODUCT_PACKAGES += \
-android.hardware.keymaster@3.0-service \
 android.hardware.keymaster@3.0-impl
 # Bluetooth HAL
 PRODUCT_PACKAGES += \
@@ -116,8 +112,8 @@ android.hardware.power@1.0-impl
 PRODUCT_PACKAGES += \
 android.hardware.vibrator@1.0-impl
 # Sensors
-#PRODUCT_PACKAGES += \
-#android.hardware.sensors@1.0-impl
+PRODUCT_PACKAGES += \
+android.hardware.sensors@1.0-impl
 # GNSS HAL
 PRODUCT_PACKAGES += \
 android.hardware.gnss@1.0-impl
@@ -140,7 +136,7 @@ android.hardware.configstore-utils
 
 PRODUCT_PACKAGES += \
 android.hardware.graphics.allocator@2.0-impl-exynos4 \
-android.hardware.graphics.mapper@2.0-impl \
+android.hardware.graphics.mapper@2.0-impl-exynos4 \
 android.hardware.graphics.composer@2.1-impl
 
 #Audio

@@ -68,7 +68,7 @@ $(INSTALLED_BOOTIMAGE_TARGET): $(PRODUCT_OUT)/kernel \
 
 	$(hide) $(MKBOOTFS) $(PRODUCT_OUT)/combinedroot > $(PRODUCT_OUT)/combinedroot.cpio
 	$(hide) cat $(PRODUCT_OUT)/combinedroot.cpio | gzip > $(PRODUCT_OUT)/combinedroot.fs
-	$(hide) python $(MKELF) $(MKELF_ARGS) -o $(PRODUCT_OUT)/kernel.elf $(PRODUCT_OUT)/kernel@$(BOARD_KERNEL_ADDRESS) $(PRODUCT_OUT)/combinedroot.fs@$(BOARD_RAMDISK_ADDRESS),ramdisk /home/haxk20/los15.1/device/sony/$(TARGET_DEVICE)/config/cmdline@cmdline
+	$(hide) python $(MKELF) $(MKELF_ARGS) -o $(PRODUCT_OUT)/kernel.elf $(PRODUCT_OUT)/kernel@$(BOARD_KERNEL_ADDRESS) $(PRODUCT_OUT)/combinedroot.fs@$(BOARD_RAMDISK_ADDRESS),ramdisk /home/haxk20/Data/lineage16.0/device/sony/$(TARGET_DEVICE)/config/cmdline@cmdline
 
 	$(hide) dd if=$(PRODUCT_OUT)/kernel.elf of=$(PRODUCT_OUT)/kernel.elf.bak bs=1 count=44
 	$(hide) printf "\x04" >$(PRODUCT_OUT)/04
@@ -77,7 +77,7 @@ $(INSTALLED_BOOTIMAGE_TARGET): $(PRODUCT_OUT)/kernel \
 	$(hide) dd if=$(PRODUCT_OUT)/kernel.elf of=$(PRODUCT_OUT)/kernel.elf.bak bs=1 skip=45 count=99
 	$(hide) cat $(PRODUCT_OUT)/kernel.elf.bak2 $(PRODUCT_OUT)/kernel.elf.bak > $(PRODUCT_OUT)/kernel.elf.bak3
 	$(hide) rm -rf $(PRODUCT_OUT)/kernel.elf.bak $(PRODUCT_OUT)/kernel.elf.bak2
-	$(hide) cat $(PRODUCT_OUT)/kernel.elf.bak3 /home/haxk20/los15.1/device/sony/$(TARGET_DEVICE)/prebuilt/elf.3 > $(PRODUCT_OUT)/kernel.elf.bak
+	$(hide) cat $(PRODUCT_OUT)/kernel.elf.bak3 /home/haxk20/Data/lineage16.0/device/sony/$(TARGET_DEVICE)/prebuilt/elf.3 > $(PRODUCT_OUT)/kernel.elf.bak
 	$(hide) rm -rf $(PRODUCT_OUT)/kernel.elf.bak3
 	$(hide) dd if=$(PRODUCT_OUT)/kernel.elf of=$(PRODUCT_OUT)/kernel.elf.bak2 bs=16 skip=79
 	$(hide) cat $(PRODUCT_OUT)/kernel.elf.bak $(PRODUCT_OUT)/kernel.elf.bak2 > $(PRODUCT_OUT)/kernel.elf.bak3
@@ -90,7 +90,7 @@ $(INSTALLED_RECOVERYIMAGE_TARGET): $(MKBOOTIMG) \
 		$(recovery_ramdisk) \
 		$(recovery_kernel)
 	@echo "----- Making recovery image ------"
-	$(hide) python $(MKELF) -o $(PRODUCT_OUT)/recovery.elf $(PRODUCT_OUT)/kernel@$(BOARD_KERNEL_ADDRESS) $(PRODUCT_OUT)/ramdisk-recovery.img@$(BOARD_RAMDISK_ADDRESS),ramdisk /home/haxk20/los15.1/device/sony/$(TARGET_DEVICE)/config/cmdline@cmdline
+	$(hide) python $(MKELF) -o $(PRODUCT_OUT)/recovery.elf $(PRODUCT_OUT)/kernel@$(BOARD_KERNEL_ADDRESS) $(PRODUCT_OUT)/ramdisk-recovery.img@$(BOARD_RAMDISK_ADDRESS),ramdisk /home/haxk20/Data/lineage16.0/device/sony/$(TARGET_DEVICE)/config/cmdline@cmdline
 
 	$(hide) dd if=$(PRODUCT_OUT)/recovery.elf of=$(PRODUCT_OUT)/recovery.elf.bak bs=1 count=44
 	$(hide) printf "\x04" >$(PRODUCT_OUT)/_04
@@ -99,7 +99,7 @@ $(INSTALLED_RECOVERYIMAGE_TARGET): $(MKBOOTIMG) \
 	$(hide) dd if=$(PRODUCT_OUT)/recovery.elf of=$(PRODUCT_OUT)/recovery.elf.bak bs=1 skip=45 count=99
 	$(hide) cat $(PRODUCT_OUT)/recovery.elf.bak2 $(PRODUCT_OUT)/recovery.elf.bak > $(PRODUCT_OUT)/recovery.elf.bak3
 	$(hide) rm -rf $(PRODUCT_OUT)/recovery.elf.bak $(PRODUCT_OUT)/recovery.elf.bak2
-	$(hide) cat $(PRODUCT_OUT)/recovery.elf.bak3 /home/haxk20/los15.1/device/sony/$(TARGET_DEVICE)/prebuilt/elf.3 > $(PRODUCT_OUT)/recovery.elf.bak
+	$(hide) cat $(PRODUCT_OUT)/recovery.elf.bak3 /home/haxk20/Data/lineage16.0/device/sony/$(TARGET_DEVICE)/prebuilt/elf.3 > $(PRODUCT_OUT)/recovery.elf.bak
 	$(hide) rm -rf $(PRODUCT_OUT)/recovery.elf.bak3
 	$(hide) dd if=$(PRODUCT_OUT)/recovery.elf of=$(PRODUCT_OUT)/recovery.elf.bak2 bs=16 skip=79
 	$(hide) cat $(PRODUCT_OUT)/recovery.elf.bak $(PRODUCT_OUT)/recovery.elf.bak2 > $(PRODUCT_OUT)/recovery.elf.bak3
